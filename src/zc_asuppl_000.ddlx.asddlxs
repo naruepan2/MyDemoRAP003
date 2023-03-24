@@ -1,0 +1,59 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Supplment',
+    typeNamePlural: 'Supplments',
+    title: { type: #STANDARD, label: 'Supplment', value: 'SuppleUuid' }
+  }
+}
+@Search.searchable: true
+annotate entity ZC_ASUPPL_000 with
+{
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Supplement',
+    position: 10
+  } ]
+
+  @UI.hidden: true
+  SuppleUuid;
+  @UI.hidden: true
+  TravelUuid;
+  @UI.hidden: true
+  BookingUuid;
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM,
+    label: 'Supple Id'
+  } ]
+  @UI.identification: [ {
+    position: 10 ,
+    label: 'Supple Id'
+  } ]  
+  @Search: { defaultSearchElement: true, fuzzinessThreshold: 0.3 }
+  Suppleid;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: 'Price'
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: 'Price'
+  } ]
+  Price;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: 'Currency Code'
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Currency Code'
+  } ]
+  CurrencyCode;
+}

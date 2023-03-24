@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service definition forZC_ATRAV_000'
+define service ZSD_ATRAV_000 {
+  expose ZC_ATRAV_000 as Travel;
+  expose ZC_ABOOK_000 as Booking;
+  expose ZC_ASUPPL_000 as Supplement;
+}

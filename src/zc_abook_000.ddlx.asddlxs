@@ -1,0 +1,118 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Booking',
+    typeNamePlural: 'Bookings',
+    title: { type: #STANDARD, label: 'Booking', value: 'BookingUuid' }
+  }
+}
+@Search.searchable: true
+annotate entity ZC_ABOOK_000 with
+{
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Booking',
+    position: 10,
+    purpose: #STANDARD
+  },
+  { 
+   id: 'idBooking',
+   type: #LINEITEM_REFERENCE,
+   label: 'Supplement',
+   position: 20,
+   targetElement: '_Supplement'
+  },
+  { 
+   id: 'idTravel',
+   type: #COLLECTION,
+   label: 'Travel',
+   position: 30,
+   targetElement: '_Travel',
+   purpose: #HEADER
+  } ]
+
+  @UI.hidden: true
+  BookingUuid;
+  @UI.hidden: true
+  TravelUuid;
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM,
+    label: 'Booking ID'
+  } ]
+  @UI.identification: [ {
+    position: 10 ,
+    label: 'Booking ID'
+  } ]
+  @Search: { defaultSearchElement: true, fuzzinessThreshold: 0.3 }
+  BookingId;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: 'Booking Date'
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: 'Booking Date'
+  } ]
+  BookingDate;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: 'Carrier Id'
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Carrier Id'
+  } ]
+  CarrierId;
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: 'Connection Id'
+  } ]
+  @UI.identification: [ {
+    position: 40 ,
+    label: 'Connection Id'
+  } ]
+  ConnectionId;
+
+  @UI.lineItem: [ {
+    position: 50 ,
+    importance: #MEDIUM,
+    label: 'Flight Date'
+  } ]
+  @UI.identification: [ {
+    position: 50 ,
+    label: 'Flight Date'
+  } ]
+  FlightDate;
+
+  @UI.lineItem: [ {
+    position: 60 ,
+    importance: #MEDIUM,
+    label: 'Flight Price'
+  } ]
+  @UI.identification: [ {
+    position: 60 ,
+    label: 'Flight Price'
+  } ]
+  FlightPrice;
+
+  @UI.lineItem: [ {
+    position: 70 ,
+    importance: #MEDIUM,
+    label: 'Currency Code'
+  } ]
+  @UI.identification: [ {
+    position: 70 ,
+    label: 'Currency Code'
+  } ]
+  CurrencyCode;
+
+}
