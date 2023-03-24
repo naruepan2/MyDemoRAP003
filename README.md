@@ -8,4 +8,5 @@
 - https://www.samplecodeabap.com/cds-fiori-elements-object-page-facets
 - https://answers.sap.com/questions/13731390/using-a-collection-facet-to-display-facets-of-anot.html
 - https://discoveringabap.com/2023/01/27/abap-restful-application-programming-model-12-travel-service-annotations-for-object-page
+- https://developers.sap.com/group.fiori-tools-odata-v4-travel.html
 
