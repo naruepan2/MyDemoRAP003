@@ -38,6 +38,9 @@ authorization master ( global )
   draft action Discard;
   draft action Resume;
   draft determine action Prepare;
+
+  //  action TestParamAction1 deep parameter ZA_DMO_ABSTACT_ROOT_000 result [1] $self;
+  action TestParamAction1 parameter ZA_DMO_ABSTACT_ROOT_000 result [1] $self;
   mapping for zrap_atrav_000
     {
 
@@ -60,7 +63,10 @@ authorization master ( global )
       LastChangedAt      = last_changed_at;
       LocalLastChangedAt = local_last_changed_at;
     }
- association _Booking { create; with draft; }
+
+
+
+  association _Booking { create; with draft; }
 }
 
 define behavior for ZI_ABOOK_000 alias Booking

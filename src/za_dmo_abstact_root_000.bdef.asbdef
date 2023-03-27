@@ -1,0 +1,48 @@
+abstract;
+strict ( 2 );
+with hierarchy;
+
+define behavior for ZA_DMO_ABSTACT_ROOT_000 alias Root
+{
+
+  field ( suppress ) parentId;
+
+  deep
+  mapping for zst_dmo_abstact_root_000 corresponding
+    {
+          field01   = field01;
+//      sub _toStruct = tostruct;
+      sub _toTable  = totable;
+    }
+ association _toTable;
+//  association _toStruct;
+
+
+}
+
+
+//scalar entity ZA_DMO_ABSTACT_STRUCT_000 field parentId;
+//scalar entity ZA_DMO_ABSTACT_ITMTBL_000 field parentId;
+
+define behavior for ZA_DMO_ABSTACT_ITMTBL_000 alias toTable
+{
+  field ( suppress ) childId, parentId;
+  deep
+  mapping for zst_dmo_abstact_table_000 corresponding
+    {
+      field01 = field01;
+    }
+ association _to_parent;
+}
+
+//define behavior for ZA_DMO_ABSTACT_STRUCT_000 alias toStruct
+//{
+//
+//  field ( suppress ) childId, parentId;
+//  deep
+//  mapping for zst_dmo_abstact_struc_000 corresponding
+//    {
+//      field01 = field01;
+//    }
+// association _to_parent;
+//}

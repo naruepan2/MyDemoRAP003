@@ -16,6 +16,8 @@ use etag
   use action Resume;
   use action Prepare;
 
+  use action TestParamAction1 result entity ZC_ATRAV_000;
+
   use association _Booking { create; with draft; }
 }
 

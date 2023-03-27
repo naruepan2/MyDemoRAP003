@@ -4,7 +4,7 @@
 //@ObjectModel.semanticKey: ['BookingUuid', 'TravelUuid']
 @ObjectModel.semanticKey: ['BookingUuid']
 define view entity ZC_ABOOK_000
-  as projection on ZI_ABOOK_000
+  as projection on ZI_ABOOK_000 
 {
   key BookingUuid,
   key TravelUuid,

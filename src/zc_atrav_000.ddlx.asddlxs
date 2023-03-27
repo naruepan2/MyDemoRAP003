@@ -3,20 +3,65 @@
   headerInfo: {
     typeName: 'Travel',
     typeNamePlural: 'Travels',
-    title: { type: #STANDARD, label: 'Travel', value: 'TravelUUID' }
-  }
+    title: { type: #STANDARD, 
+//             label: 'Travel', 
+             value: 'TravelUUID' }
+  },
+  presentationVariant: [{ sortOrder: [{by: 'TravelID', direction: #DESC } ],
+                          visualizations: [{ type: #AS_LINEITEM }] }]
 }
 @Search.searchable: true
 annotate view ZC_ATRAV_000 with
 {
-  @UI.facet: [ {
+  @UI.facet: [  
+  {
+    id: 'HeaderInfo',
+    type: #COLLECTION,
+    purpose: #STANDARD,
+    label: 'Header Information',
+    position: 10
+  },
+  {
+    id: 'GeneralInfo',
+    type: #COLLECTION,
+    purpose: #STANDARD,
+    label: 'General Information',
+    position: 20
+  },
+  { id: 'idHeader1',
+    type: #FIELDGROUP_REFERENCE,
+    parentId: 'HeaderInfo',
+    purpose: #STANDARD,
+    label: 'Header 1',
+    position: 10,
+    targetQualifier: 'hdATRAV1'
+  },
+  { id: 'idHeader2',
+    type: #FIELDGROUP_REFERENCE,
+    parentId: 'HeaderInfo',
+    purpose: #STANDARD,
+    label: 'Header 2',
+    position: 20,
+    targetQualifier: 'hdATRAV2'
+  },
+  {
     id: 'idIdentification',
     type: #IDENTIFICATION_REFERENCE,
-    label: 'Travel',
+    label: 'Travel Details',
     position: 10,
-    purpose: #STANDARD
+    purpose: #STANDARD,
+    parentId: 'GeneralInfo'
   },
-  { 
+  {
+    id: 'idAttachment',
+    type: #FIELDGROUP_REFERENCE,
+    label: 'Upload Document',
+    position: 20,
+    purpose: #STANDARD,
+    parentId: 'GeneralInfo',
+    targetQualifier: 'Upload'
+  },
+  {
    id: 'idBooking',
    type: #LINEITEM_REFERENCE,
    label: 'Booking',
@@ -24,19 +69,32 @@ annotate view ZC_ATRAV_000 with
    targetElement: '_Booking'
   } ]
 
-  @UI.hidden: true
+//  @UI.hidden: true
   TravelUUID;
 
   @UI.lineItem: [ {
     position: 10 ,
     importance: #MEDIUM,
     label: 'TravelID'
+  },
+  { 
+    type: #FOR_ACTION,
+    position: 10,
+    dataAction: 'TestParamAction1',
+    label: 'Action1'
   } ]
   @UI.identification: [ {
     position: 10 ,
     label: 'TravelID'
+  },
+  { 
+    type: #FOR_ACTION,
+    position: 10,
+    dataAction: 'TestParamAction1',
+    label: 'Action1'
   } ]
   @Search: { defaultSearchElement: true, fuzzinessThreshold: 0.3 }
+  @UI.fieldGroup: [{ qualifier: 'hdATRAV1', position: 10, label: 'TravelID' }]
   TravelID;
 
   @UI.lineItem: [ {
@@ -48,6 +106,7 @@ annotate view ZC_ATRAV_000 with
     position: 20 ,
     label: 'BeginDate'
   } ]
+  @UI.fieldGroup: [{ qualifier: 'hdATRAV2', position: 20, label: 'BeginDate' }]
   BeginDate;
 
   @UI.lineItem: [ {
@@ -59,6 +118,7 @@ annotate view ZC_ATRAV_000 with
     position: 30 ,
     label: 'EndDate'
   } ]
+  @UI.fieldGroup: [{ qualifier: 'hdATRAV2', position: 30, label: 'EndDate' }]
   EndDate;
 
   @UI.lineItem: [ {
@@ -103,7 +163,7 @@ annotate view ZC_ATRAV_000 with
     position: 70 ,
     label: 'Description'
   } ]
-//  @Search: { defaultSearchElement: true, fuzzinessThreshold: 0.9 }
+  //  @Search: { defaultSearchElement: true, fuzzinessThreshold: 0.9 }
   Description;
 
   @UI.lineItem: [ {
@@ -122,10 +182,11 @@ annotate view ZC_ATRAV_000 with
   //    importance: #MEDIUM,
   //    label: ''
   //  } ]
-  @UI.identification: [ {
-    position: 90 ,
-    label: 'Attachment'
-  } ]
+  //  @UI.identification: [ {
+  //    position: 90 ,
+  //    label: 'Attachment'
+  //  } ]
+  @UI.fieldGroup: [{ qualifier: 'Upload', label: 'Attachment' }]
   Attachment;
   //
   //  @UI.lineItem: [ {
