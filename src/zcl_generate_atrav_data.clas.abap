@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_generate_atrav_data IMPLEMENTATION.
+CLASS ZCL_GENERATE_ATRAV_DATA IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

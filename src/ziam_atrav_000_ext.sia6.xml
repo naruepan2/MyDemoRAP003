@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZIAM_ATRAV_000_EXT</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>ZIAM_ATRAV_000</DESCRIPTION>
+     <RESPONSIBLE>CB9980000052</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>YYN</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZABAP_TEST_NWR_4</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZIAM_ATRAV_000_EXT</APP_ID>
+    <APP_TYPE>EXT</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZSB_ATRAV_000</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZIAM_ATRAV_000_EXT</APP_ID>
+      <SRVC_NAME>064588C73861AF0CA19F6D0C2795D6</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Service Binding for ZSD_ATRAV_000</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+     <item>
+      <REL_NAME>ZSB_ATRAV_000_O2                   0001</REL_NAME>
+      <REL_TYPE>IWSV</REL_TYPE>
+      <APP_ID>ZIAM_ATRAV_000_EXT</APP_ID>
+      <SRVC_NAME>1FA1264E74C91FBD0D8F0408FD8E4B</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TYPE_TEXT>OData V2</TYPE_TEXT>
+     </item>
+    </SERVICE>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

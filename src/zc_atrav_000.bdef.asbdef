@@ -16,7 +16,8 @@ use etag
   use action Resume;
   use action Prepare;
 
-  use action TestParamAction1 result entity ZC_ATRAV_000;
+  use action TestAction1 external 'Action1';
+//  use action TestParamAction1 external 'Button01';
 
   use association _Booking { create; with draft; }
 }

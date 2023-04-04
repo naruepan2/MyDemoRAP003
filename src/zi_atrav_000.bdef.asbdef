@@ -39,8 +39,9 @@ authorization master ( global )
   draft action Resume;
   draft determine action Prepare;
 
+  action TestAction1 parameter ZA_DMO_ACTION_PARAMETER_V1;
+
   //  action TestParamAction1 deep parameter ZA_DMO_ABSTACT_ROOT_000 result [1] $self;
-  action TestParamAction1 parameter ZA_DMO_ABSTACT_ROOT_000 result [1] $self;
   mapping for zrap_atrav_000
     {
 
@@ -70,7 +71,7 @@ authorization master ( global )
 }
 
 define behavior for ZI_ABOOK_000 alias Booking
-//implementation in class ZBP_ABOOK_000 unique
+implementation in class ZBP_ABOOK_000 unique
 persistent table zrap_abook_000
 draft table zrap_dbook_000
 etag master LastChangedAt

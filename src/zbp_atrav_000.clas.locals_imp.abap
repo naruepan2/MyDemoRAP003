@@ -3,8 +3,10 @@ CLASS lhc_Travel DEFINITION INHERITING FROM cl_abap_behavior_handler.
 
     METHODS get_global_authorizations FOR GLOBAL AUTHORIZATION
       IMPORTING REQUEST requested_authorizations FOR Travel RESULT result.
-    METHODS TestParamAction1 FOR MODIFY
-      IMPORTING keys FOR ACTION Travel~TestParamAction1 RESULT result.
+*    METHODS TestParamAction1 FOR MODIFY
+*      IMPORTING keys FOR ACTION Travel~TestParamAction1 RESULT result.
+    METHODS TestAction1 FOR MODIFY
+      IMPORTING keys FOR ACTION Travel~TestAction1.
 
 
 
@@ -15,7 +17,26 @@ CLASS lhc_Travel IMPLEMENTATION.
   METHOD get_global_authorizations.
   ENDMETHOD.
 
-  METHOD TestParamAction1.
+*  METHOD TestParamAction1.
+*
+*    READ ENTITIES OF zi_atrav_000 IN LOCAL MODE
+*        ENTITY Travel
+*        ALL FIELDS WITH CORRESPONDING #( keys )
+*        RESULT DATA(travel)
+*        FAILED failed
+*        REPORTED reported.
+*
+*    LOOP AT travel ASSIGNING FIELD-SYMBOL(<travel>).
+*
+*    ENDLOOP.
+*
+*    result = VALUE #( FOR <travel_out> IN travel
+*                      ( %tky = <travel_out>-%tky
+*                        %param = CORRESPONDING #( <travel_out> ) ) ).
+*
+*  ENDMETHOD.
+
+  METHOD TestAction1.
 
     READ ENTITIES OF zi_atrav_000 IN LOCAL MODE
         ENTITY Travel
@@ -27,10 +48,6 @@ CLASS lhc_Travel IMPLEMENTATION.
     LOOP AT travel ASSIGNING FIELD-SYMBOL(<travel>).
 
     ENDLOOP.
-
-    result = VALUE #( FOR <travel_out> IN travel
-                      ( %tky = <travel_out>-%tky
-                        %param = CORRESPONDING #( <travel_out> ) ) ).
 
   ENDMETHOD.
 
